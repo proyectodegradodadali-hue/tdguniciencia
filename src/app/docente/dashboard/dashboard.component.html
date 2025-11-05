@@ -1,0 +1,63 @@
+<div class="space-y-6">
+
+    <!-- Saludo / Header -->
+    <div class="flex justify-between items-center">
+      <h2 class="text-2xl font-bold text-gray-800">Dashboard</h2>
+      <p class="text-gray-600">Bienvenido al sistema de gestión docente</p>
+    </div>
+  
+    <!-- Cards resumen -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  
+      <!-- Card 1: Lista de Proyectos -->
+      <div class="p-6 bg-white shadow rounded-xl flex flex-col">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-xl font-bold text-gray-800">Lista de Proyectos</span>
+          <span class="text-3xl">📑</span>
+        </div>
+        <p class="text-gray-600 text-sm">Tienes 5 proyectos asignados</p>
+        <a routerLink="/docente/lista-proyectos"
+           class="mt-4 px-3 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition text-center">
+          Ver Proyectos
+        </a>
+      </div>
+  
+      <!-- Card 2: Observaciones -->
+      <div class="p-6 bg-white shadow rounded-xl flex flex-col">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-xl font-bold text-gray-800">Observaciones</span>
+          <span class="text-3xl">📝</span>
+        </div>
+        <p class="text-gray-600 text-sm">Has agregado 8 observaciones recientemente</p>
+        <a routerLink="/docente/observaciones"
+           class="mt-4 px-3 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition text-center">
+          Ver Observaciones
+        </a>
+      </div>
+  
+      <!-- Card 3: Acción rápida -->
+      <div class="p-6 bg-white shadow rounded-xl flex flex-col">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-xl font-bold text-gray-800">Nueva Acción</span>
+          <span class="text-3xl">⚡</span>
+        </div>
+        <p class="text-gray-600 text-sm">Crea una nueva actividad o nota para tus proyectos</p>
+        <button class="mt-4 px-3 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition w-full">
+          Crear Acción
+        </button>
+      </div>
+  
+    </div>
+  
+    <!-- Sección adicional (opcional) -->
+    <div class="bg-white p-6 shadow rounded-xl">
+      <h3 class="text-lg font-bold text-gray-800 mb-4">Últimas Actividades</h3>
+      <ul class="space-y-2 text-gray-600">
+        <li>✅ Proyecto "App Angular" revisado</li>
+        <li>📝 Observación "Documento inicial" agregada</li>
+        <li>📅 Recordatorio de reunión con estudiantes</li>
+      </ul>
+    </div>
+  
+</div>
+  

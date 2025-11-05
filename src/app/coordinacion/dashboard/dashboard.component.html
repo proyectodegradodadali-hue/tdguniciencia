@@ -1,0 +1,74 @@
+<div class="space-y-6">
+
+    <!-- Header -->
+    <div class="flex justify-between items-center">
+      <h2 class="text-2xl font-bold text-gray-800">Dashboard de Coordinación</h2>
+      <p class="text-gray-600">Resumen general del sistema</p>
+    </div>
+  
+    <!-- Cards resumen -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  
+      <!-- Card 1: Estudiantes -->
+      <div class="p-6 bg-white shadow rounded-xl flex flex-col">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-xl font-bold text-gray-800">Estudiantes</span>
+          <span class="text-3xl">👩‍🎓</span>
+        </div>
+        <p class="text-gray-600 text-base">Total: <span class="font-bold">{{contarUsuarios}}</span> estudiantes registrados</p>
+        <button routerLink="/coordinacion/usuarios" class="mt-4 px-3 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition w-full">
+          Ver Estudiantes
+        </button>
+      </div>
+  
+      <!-- Card 2: Docentes -->
+      <div class="p-6 bg-white shadow rounded-xl flex flex-col">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-xl font-bold text-gray-800">Docentes</span>
+          <span class="text-3xl">👨‍🏫</span>
+        </div>
+        <p class="text-gray-600 text-sm">Total: <span class="font-bold">{{contarDocentes}}</span> docentes registrados</p>
+        <button routerLink="/coordinacion/usuarios" class="mt-4 px-3 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition w-full">
+          Ver Docentes
+        </button>
+      </div>
+  
+      <!-- Card 3: Proyectos -->
+      <div class="p-6 bg-white shadow rounded-xl flex flex-col">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-xl font-bold text-gray-800">Proyectos</span>
+          <span class="text-3xl">📑</span>
+        </div>
+        <p class="text-gray-600 text-sm">Total: <span class="font-bold">{{contarProyectos}}</span> proyectos activos</p>
+        <button routerLink="/coordinacion/proyectos" class="mt-4 px-3 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition w-full">
+          Ver Proyectos
+        </button>
+      </div>
+  
+      <!-- Card 4: Observaciones -->
+      <!-- <div class="p-6 bg-white shadow rounded-xl flex flex-col">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-xl font-bold text-gray-800">Observaciones</span>
+          <span class="text-3xl">📝</span>
+        </div>
+        <p class="text-gray-600 text-sm">Total: 120 observaciones realizadas</p>
+        <button class="mt-4 px-3 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition w-full">
+          Ver Observaciones
+        </button>
+      </div> -->
+  
+    </div>
+  
+    <!-- Sección adicional opcional -->
+    <div class="bg-white p-6 shadow rounded-xl">
+      <h3 class="text-lg font-bold text-gray-800 mb-4">Últimas acciones</h3>
+      <ul class="space-y-2 text-gray-600">
+        <li>✅ Juan Pérez creado como estudiante</li>
+        <li>✅ María Gómez registrada como estudiante</li>
+        <li>📑 Nuevo proyecto "App Angular" agregado</li>
+        <li>📝 Observación añadida al proyecto "Sistema de Seguridad"</li>
+      </ul>
+    </div>
+  
+</div>
+  

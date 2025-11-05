@@ -1,0 +1,36 @@
+<!-- docente.component.html -->
+<div class="flex h-screen">
+
+  <!-- Sidebar docente -->
+  <aside class="w-64 bg-green-600 text-white p-4 h-screen sticky top-0">
+    <h2 class="text-2xl font-bold mb-6">Docente</h2>
+    <nav class="space-y-2">
+      <a routerLink="/docente/dashboard" routerLinkActive="bg-green-800" class="block p-2 rounded hover:bg-green-700 transition">
+        🏠 Dashboard
+      </a>
+      <a routerLink="/docente/lista-proyectos" routerLinkActive="bg-green-800" class="block p-2 rounded hover:bg-green-700 transition">
+        📑 Lista de Proyectos
+      </a>
+      <a routerLink="/docente/observaciones" routerLinkActive="bg-green-800" class="block p-2 rounded hover:bg-green-700 transition">
+        📝 Observaciones
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Contenido principal -->
+  <main class="flex-1 p-6 bg-gray-100 overflow-y-auto">
+    
+    <!-- Header de la sección -->
+    <header class="flex justify-between items-center mb-6">
+      <h1 class="text-2xl font-bold text-gray-800">Bienvenido, Docente</h1>
+      <button class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition">
+        Nueva acción
+      </button>
+    </header>
+
+    <!-- Contenedor de las vistas -->
+    <div class="space-y-6">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>

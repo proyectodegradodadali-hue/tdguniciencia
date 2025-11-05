@@ -1,0 +1,32 @@
+<!-- Fondo oscuro -->
+<div *ngIf="mostrarModal()" (click)="cerrarModal()" class="fixed inset-0 z-40 bg-black opacity-25"></div>
+
+<!-- Modal -->
+<div *ngIf="mostrarModal()" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex modal-fade-down">
+    <div (click)="$event.stopPropagation()" class="relative mx-auto my-6 bg-white rounded-lg shadow-lg max-w-sm w-full">
+    <!-- 'max-w-sm':  'small',
+      'max-w-3xl':  'regular',
+      'max-w-6xl':  'large' -->
+    <!-- Título del modal -->
+    <div class="flex items-start justify-between p-4 border-b border-solid border-blueGray-200 rounded-t">
+      <h3 class="text-xl font-semibold">
+        Eliminar
+      </h3>
+    </div>
+    
+    <!-- Contenido del modal -->
+    <div class="relative p-4 flex-auto">
+      <h3 class="text-lg font-semibold text-gray-700">Confrima que desea eliminar?.</h3>
+    </div>
+    
+    <!--footer-->
+    <div class="flex items-center justify-end p-4 border-t border-solid border-blueGray-200 rounded-b">
+      <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" (click)="handleCancel()">
+        NO
+      </button>
+      <button class="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="submit" (click)="handleSave()">
+        SI
+      </button>
+    </div>
+  </div>
+</div>

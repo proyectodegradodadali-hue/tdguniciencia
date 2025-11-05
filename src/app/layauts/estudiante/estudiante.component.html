@@ -1,0 +1,42 @@
+<!-- estudiante.component.html -->
+<div class="flex h-screen">
+
+  <!-- Sidebar estudiante -->
+  <aside class="w-64 bg-blue-600 text-white p-4 h-screen sticky top-0">
+    <h2 class="text-2xl font-bold mb-6">Estudiante</h2>
+    <nav class="space-y-2">
+      <a routerLink="/estudiante/dashboard" routerLinkActive="bg-blue-800" class="block p-2 rounded hover:bg-blue-700 transition">
+        🏠 Dashboard
+      </a>
+      <a routerLink="/estudiante/proyectos" routerLinkActive="bg-blue-800" class="block p-2 rounded hover:bg-blue-700 transition">
+        📑 Proyectos
+      </a>
+      <a routerLink="/estudiante/subir-documentos" routerLinkActive="bg-blue-800" class="block p-2 rounded hover:bg-blue-700 transition">
+        📂 Documentos
+      </a>
+      <a routerLink="/estudiante/estado-proyecto" routerLinkActive="bg-blue-800" class="block p-2 rounded hover:bg-blue-700 transition">
+        📊 Estado Proyecto
+      </a>
+      <a routerLink="/estudiante/cronograma" routerLinkActive="bg-blue-800" class="block p-2 rounded hover:bg-blue-700 transition">
+        📅 Cronograma
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Contenido principal -->
+  <main class="flex-1 p-6 bg-gray-100 overflow-y-auto">
+    
+    <!-- Header de la sección -->
+    <header class="flex justify-between items-center mb-6">
+      <h1 class="text-2xl font-bold text-gray-800">Bienvenido, Estudiante</h1>
+      <button class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+        Acción rápida
+      </button>
+    </header>
+
+    <!-- Contenedor de las vistas -->
+    <div class="space-y-6">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>

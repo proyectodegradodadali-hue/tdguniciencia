@@ -1,0 +1,57 @@
+<div class="upload-container">
+  @if (uploading) {
+    <div class="progress-container">
+      <div 
+        class="progress-bar"
+        [style.width.%]="uploadProgress">
+        {{ uploadProgress }}%
+      </div>
+    </div>
+  }@else{
+
+    <div class="button-container">
+      <input
+        type="file"
+        #fileInput
+        (change)="onFileSelected($event)"
+        accept="image/png, image/jpeg, image/jpg"
+        style="display: none"
+      >
+      <div class="flex items-center border rounded-lg border-amber-500 border-dashed">
+        <div class="flex-1 items-center gap-2  px-2 py-0.5 mr-2">
+            @if (previewUrl) {
+                <img 
+                [src]="previewUrl" 
+                alt="Logo preview" 
+                class="h-[40px] w-auto preview-image"
+                >
+            }
+        </div>
+        <div class="flex flex-col items-center gap-1 me-0.5">
+            <button 
+                (click)="fileInput.click()"
+                class="bg-amber-500 hover:bg-amber-600 text-white text-base p-2 rounded"
+                [disabled]="uploading">
+                Seleccionar Logo
+            </button>
+        
+            @if (selectedFile && !uploading) {
+                <button 
+                (click)="uploadImage()"
+                class="bg-amber-500 hover:bg-amber-600 text-white text-base py-0 px-2 rounded">
+                Subir Logo
+                </button>
+            }
+        </div>
+      </div>
+
+    </div>
+
+    @if (errorMessage) {
+      <div class="error-message">
+        {{ errorMessage }}
+      </div>
+    }
+
+  }
+</div>

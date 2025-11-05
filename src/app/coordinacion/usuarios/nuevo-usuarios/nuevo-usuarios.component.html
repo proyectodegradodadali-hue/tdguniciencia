@@ -1,0 +1,247 @@
+<!-- Fondo oscuro -->
+<div *ngIf="mostrarModal()" (click)="cerrarModal()" class="fixed inset-0 z-40 bg-black opacity-25"></div>
+
+<!-- Modal -->
+<div *ngIf="mostrarModal()" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex modal-fade-down">
+    <div (click)="$event.stopPropagation()" class="relative mx-auto my-6 bg-white rounded-lg shadow-lg max-w-3xl w-full">
+    <!-- Título del modal -->
+    <div class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+      <h3 class="text-xl font-semibold">
+        Nuevos Estudiantes
+      </h3>
+    </div>
+    <form [formGroup]="agregarActividadForm" (ngSubmit)="handleSave()">
+    <!-- Contenido del modal -->
+    <div class="relative p-6 flex-auto">
+
+      <div class="flex flex-wrap mb-4">
+        <div class="w-full lg:w-6/12 px-2">
+            <div class="space-y-2">
+              <label for="nombreUsuario" class="block text-sm font-medium text-gray-700">Nombres completos *</label>
+              <input type="text" id="nombreUsuario" formControlName="nombreUsuario" name="nombreUsuario" placeholder="Nombre de la actividad..." required
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+              <div class="text-red-600 text-xs mt-1" *ngIf="hasError('nombreUsuario')">
+                {{ getErrorMessage('nombreUsuario') }}
+              </div>
+            </div>
+        </div>
+        <div class="w-full lg:w-6/12 px-2">
+            <div class="space-y-2">
+              <label for="numeroIdentificacion" class="block text-sm font-medium text-gray-700">Numero de Identificación *</label>
+              <input type="text" id="numeroIdentificacion" formControlName="numeroIdentificacion" name="numeroIdentificacion" placeholder="Nombre de la actividad..." required
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+              <div class="text-red-600 text-xs mt-1" *ngIf="hasError('numeroIdentificacion')">
+                {{ getErrorMessage('numeroIdentificacion') }}
+              </div>
+            </div>
+        </div>
+        <div class="w-full lg:w-4/12 px-2">
+            <div class="space-y-2">
+              <label for="correoInstitucional" class="block text-sm font-medium text-gray-700">Correo Institucional *</label>
+              <input type="text" id="correoInstitucional" formControlName="correoInstitucional" name="correoInstitucional" placeholder="Nombre de la actividad..." required
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+              <div class="text-red-600 text-xs mt-1" *ngIf="hasError('correoInstitucional')">
+                {{ getErrorMessage('correoInstitucional') }}
+              </div>
+            </div>
+        </div>
+        <div class="w-full lg:w-4/12 px-2">
+            <div class="space-y-2">
+              <label for="numeroCelular" class="block text-sm font-medium text-gray-700">Numero de Celular *</label>
+              <input type="text" id="numeroCelular" formControlName="numeroCelular" name="numeroCelular" placeholder="Nombre de la actividad..." required
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+              <div class="text-red-600 text-xs mt-1" *ngIf="hasError('numeroCelular')">
+                {{ getErrorMessage('numeroCelular') }}
+              </div>
+            </div>
+        </div>
+        <div class="w-full lg:w-4/12 px-2">
+          <div class="space-y-2">
+            <label for="programa" class="block text-sm font-medium text-gray-700">Programa *</label>
+            <select id="programa" formControlName="programa" name="programa" required
+              class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+              <option [ngValue]="null" disabled>Seleccionar programa</option>
+              <option value="Administración de Empresas">Administración de Empresas</option>
+              <option value="Contaduría Pública">Contaduría Pública</option>
+              <option value="Derecho">Derecho</option>
+              <option value="Diseño de Modas">Diseño de Modas</option>
+              <option value="Economía">Economía</option>
+              <option value="Ingeniería Industrial">Ingeniería Industrial</option>
+              <option value="Ingeniería de Sistemas">Ingeniería de Sistemas</option>
+              <option value="Publicidad">Publicidad</option>
+            </select>
+            <div class="text-red-600 text-xs mt-1" *ngIf="hasError('programa')">
+              {{ getErrorMessage('programa') }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="text-lg font-semibold mb-4 pb-2 border-b text-gray-700">Configuración</h3>
+
+      <div class="flex flex-wrap mb-4">
+        <div class="w-full lg:w-6/12 px-2">
+              <div class="space-y-2">
+                <label for="codigoEstudiante" class="block text-sm font-medium text-gray-700">Código Estudiante *</label>
+                <input type="text" id="codigoEstudiante" formControlName="codigoEstudiante" name="codigoEstudiante" placeholder="Nombre de la actividad..." required
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                <div class="text-red-600 text-xs mt-1" *ngIf="hasError('codigoEstudiante')">
+                  {{ getErrorMessage('codigoEstudiante') }}
+                </div>
+              </div>
+          </div>
+          <div class="w-full lg:w-6/12 px-2">
+              <div class="space-y-2">
+                <label for="contraseña" class="block text-sm font-medium text-gray-700">Contraseña *</label>
+                <input type="text" id="contraseña" formControlName="contraseña" name="contraseña" placeholder="Nombre de la actividad..." required
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                <div class="text-red-600 text-xs mt-1" *ngIf="hasError('contraseña')">
+                  {{ getErrorMessage('contraseña') }}
+                </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- <div class="flex flex-wrap mb-4">
+        <div class="w-full lg:w-12/12 px-2">
+            <div class="space-y-2">
+              <label for="objetivodescripcion" class="block text-sm font-medium text-gray-700">Objetivo de la Actividad *</label>
+              <textarea id="objetivodescripcion" formControlName="objetivodescripcion" name="objetivodescripcion" placeholder="Describe el objetivo específico de esta actividad..." required
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                rows="3"></textarea>
+              <div class="text-red-600 text-xs mt-1" *ngIf="hasError('objetivodescripcion')">
+                {{ getErrorMessage('objetivodescripcion') }}
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap mb-4">
+        <div class="w-full lg:w-4/12 px-2">
+          <div class="space-y-2">
+            <label for="startDate" class="block text-sm font-medium text-gray-700">Fecha de Inicio *</label>
+            <input type="date" id="startDate" formControlName="startDate" name="startDate" required
+              class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            <div class="text-red-600 text-xs mt-1" *ngIf="hasError('startDate')">
+              {{ getErrorMessage('startDate') }}
+            </div>
+          </div>
+        </div>
+        <div class="w-full lg:w-4/12 px-2">
+          <div class="space-y-2">
+            <label for="endDate" class="block text-sm font-medium text-gray-700">Fecha de Fin *</label>
+            <input type="date" id="endDate" formControlName="endDate" name="endDate" required
+              class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            <div class="text-red-600 text-xs mt-1" *ngIf="hasError('endDate')">
+              {{ getErrorMessage('endDate') }}
+            </div>
+          </div>
+        </div>
+        <div class="w-full lg:w-4/12 px-2">
+          <div class="space-y-2">
+            <label for="pesoActividad" class="block text-sm font-medium text-gray-700">Peso Actividad (%) *</label>
+            <input type="number" id="pesoActividad" formControlName="pesoActividad" name="pesoActividad" placeholder="0" min="0" max="100" required
+              class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            <div class="text-red-600 text-xs mt-1" *ngIf="hasError('pesoActividad')">
+              {{ getErrorMessage('pesoActividad') }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="text-lg font-semibold mb-4 pb-2 border-b text-gray-700">Configuración de Indicadores</h3>
+
+      <div class="flex flex-wrap mb-4">
+        <div class="w-full lg:w-12/12 px-2">
+            <div class="space-y-2">
+              <label for="descripcionindicator" class="block text-sm font-medium text-gray-700">Descripción del Indicador *</label>
+              <input type="text" id="descripcionindicator" formControlName="descripcionindicator" name="descripcionindicator" placeholder="ej: reducir incidentes por fatiga" required
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+              <div class="text-red-600 text-xs mt-1" *ngIf="hasError('descripcionindicator')">
+                {{ getErrorMessage('descripcionindicator') }}
+              </div>
+            </div>
+        </div>
+      </div>
+
+
+      <div class="flex flex-wrap mb-4">
+        <div class="w-full lg:w-3/12 px-2">
+          <div class="space-y-2">
+            <label for="meta" class="block text-sm font-medium text-gray-700">Meta
+              <span title="ej: 20 Capacitaciones totales a realizar" class="cursor-help inline-flex items-center justify-center w-4 h-4 rounded-full bg-gray-200 text-gray-600 text-xs ml-1">?</span>
+            </label>
+            <input type="number" id="meta" formControlName="meta" name="meta" placeholder="ej: 20 Capacitaciones" min="0" 
+              class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            <div class="text-red-600 text-xs mt-1" *ngIf="hasError('meta')">
+              {{ getErrorMessage('meta') }}
+            </div>
+          </div>
+        </div>
+        <div class="w-full lg:w-3/12 px-2">
+          <div class="space-y-2">
+            <label for="comportamiento" class="block text-sm font-medium text-gray-700">Comportamiento
+              <span title="Ascendente = subir desde un valor inicial hasta una meta mayor. Descendente = Reducir desde un valor inicial hasta una meta menor." class="cursor-help inline-flex items-center justify-center w-4 h-4 rounded-full bg-gray-200 text-gray-600 text-xs ml-1">?</span>
+            </label>
+            <select id="comportamiento" formControlName="comportamiento" name="comportamiento" required
+              class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+              <option value="Ascendente">Ascendente</option>
+              <option value="Descendente">Descendente</option>
+            </select>
+          </div>
+        </div>
+        <div class="w-full lg:w-3/12 px-2">
+          <div class="space-y-2">
+            <label for="ingreso" class="block text-sm font-medium text-gray-700">Ingreso
+              <span title="Acumulado = El valor ingresado ya es el total actual. Incremento = Se suma al valor inicial para calcular el acumulado." class="cursor-help inline-flex items-center justify-center w-4 h-4 rounded-full bg-gray-200 text-gray-600 text-xs ml-1">?</span>
+            </label>
+            <select id="ingreso" formControlName="ingreso" name="ingreso" required
+              class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+              <option value="Acumulado">Acumulado</option>
+              <option value="Incremento">Incremento</option>
+            </select>
+          </div>
+        </div>
+        <div class="w-full lg:w-3/12 px-2">
+          <div class="space-y-2">
+            <label for="valorInicial" class="block text-sm font-medium text-gray-700">Valor Inicial 
+              <span title="ej: 0 ó 10 Capacitaciones realizadas" class="cursor-help inline-flex items-center justify-center w-4 h-4 rounded-full bg-gray-200 text-gray-600 text-xs ml-1">?</span>
+            </label>
+            <input type="number" id="valorInicial" formControlName="valorInicial" name="valorInicial" placeholder="0" min="0"
+              class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            <div class="text-red-600 text-xs mt-1" *ngIf="hasError('valorInicial')">
+              {{ getErrorMessage('valorInicial') }}
+            </div>
+          </div>
+        </div>
+      </div> -->
+    
+      
+
+    </div>
+    <!--footer-->
+    <div class="flex items-center justify-end p-5 border-t border-solid border-blueGray-200 rounded-b">
+      <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" (click)="handleCancel()">
+        Cancelar
+      </button>
+      @if (modo === 'crear') {
+        <button class="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="submit">
+          Crear
+        </button>
+      }
+      @if (modo === 'editar') {
+        <button class="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="submit">
+          Actualizar
+        </button>
+      }
+    </div>
+    </form>
+  </div>
+</div>
+
+@if (_alerta.showAlert) {
+  <app-alerta-informativo
+      [type]="_alerta.alertType"
+      [message]="_alerta.alertMessage">
+  </app-alerta-informativo>
+  }

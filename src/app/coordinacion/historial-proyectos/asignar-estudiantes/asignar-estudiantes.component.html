@@ -1,0 +1,85 @@
+<!-- Fondo oscuro -->
+<div *ngIf="mostrarModal()" (click)="cerrarModal()" class="fixed inset-0 z-40 bg-black opacity-25"></div>
+
+<!-- Modal -->
+<div *ngIf="mostrarModal()" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex modal-fade-down">
+    <div (click)="$event.stopPropagation()" class="relative mx-auto my-6 bg-white rounded-lg shadow-lg max-w-3xl w-full">
+    <!-- Título del modal -->
+    <div class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+      <h3 class="text-xl font-semibold">
+        Asignar Estudiantes
+      </h3>
+    </div>
+    
+    <!-- Contenido del modal -->
+    <div class="relative p-6 flex-auto">
+
+      <div class="flex flex-wrap mb-4">
+        <div class="w-full lg:w-12/12 px-2">
+            <div class="space-y-2">
+              <label for="buscarDocentesTematicos" class="block text-sm font-medium text-gray-700">Buscar Estudiante </label>
+              <input 
+                type="text" 
+                class="w-full pl-3 pr-10 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                placeholder="Buscar Estudiantes"
+                [(ngModel)]="searchText"
+                (input)="applyFilters()">
+                <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
+         
+                    @for (estudiante of estudiantesSeleccionados; track estudiante.id) {
+                      <div class="flex items-center">
+                        <div class="text-sm text-gray-500 bg-gray-100 pl-2 pr-1 py-1 rounded-full flex items-center">{{ estudiante.codigoEstudiante }} - {{ estudiante.nombreUsuario }}
+                          <button (click)="removerEstudiante(estudiante)" type="button" class="ml-2 hover:text-destructive-foreground">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x">
+                              <path d="M18 6 6 18"></path>
+                              <path d="m6 6 12 12"></path>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    }
+                   
+                    <div class="bg-card text-card-foreground flex flex-col gap-1 shadow-sm p-2 mt-1 max-h-40 overflow-y-auto" (mousedown)="$event.preventDefault()">
+                        <div class="space-y-1">
+                            @for (estudiante of estudiantes; track estudiante.id) {
+                            <div class="flex items-center justify-between rounded-md hover:bg-gray-100 transition-colors cursor-pointer p-1">
+                            <div class="flex items-center">
+                                <div>
+                                <p class="text-sm text-gray-500">{{ estudiante.nombreUsuario }} - {{estudiante.codigoEstudiante}}</p>
+                                </div>
+                            </div>
+                            <button (click)="agregarEstudiante(estudiante)" class="text-sm bg-blue-500 hover:bg-blue-600 text-white px-4 py-1 rounded-md transition-colors">Asignar</button>
+                            </div>
+                            }
+                            @empty {
+                            <div class="flex items-center justify-center">
+                                <p class="text-xs text-gray-500">No se encontraron resultados</p>
+                            </div>
+                            }
+                        </div>
+                    </div>
+              
+            </div>
+        </div>
+      </div>
+
+    </div>
+    <!--footer-->
+    <div class="flex items-center justify-end p-5 border-t border-solid border-blueGray-200 rounded-b">
+      <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" (click)="cerrarModal()">
+        Cancelar
+      </button>
+      <button (click)="handleSave()" class="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="submit">
+        Guardar
+      </button>
+    </div>
+    
+  </div>
+</div>
+
+@if (_alerta.showAlert) {
+  <app-alerta-informativo
+      [type]="_alerta.alertType"
+      [message]="_alerta.alertMessage">
+  </app-alerta-informativo>
+  }

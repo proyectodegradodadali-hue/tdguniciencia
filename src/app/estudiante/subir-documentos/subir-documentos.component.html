@@ -1,0 +1,50 @@
+<div class="space-y-6">
+
+    <!-- Header de la sección -->
+    <header class="flex justify-between items-center mb-4">
+      <h2 class="text-2xl font-bold text-gray-800">Subir Documentos</h2>
+      <p class="text-gray-600">Selecciona los archivos que deseas subir</p>
+    </header>
+  
+    <!-- Formulario de subida -->
+    <form (ngSubmit)="subirDocumentos()" class="bg-white p-6 shadow rounded-xl space-y-4">
+  
+      <!-- Input para archivos -->
+      <div>
+        <label class="block text-gray-700 font-semibold mb-2">Seleccionar archivo</label>
+        <input 
+          type="file" 
+          (change)="onFileSelected($event)" 
+          class="block w-full text-gray-700 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" 
+        />
+      </div>
+  
+      <!-- Input de descripción opcional -->
+      <div>
+        <label class="block text-gray-700 font-semibold mb-2">Descripción (opcional)</label>
+        <input 
+          type="text" 
+          
+          name="descripcion"
+          placeholder="Breve descripción del documento"
+          class="block w-full text-gray-700 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" 
+        />
+      </div>
+  
+      <!-- Botón de subida -->
+      <button 
+        type="submit" 
+        [disabled]="!archivoSeleccionado"
+        class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        Subir Documento
+      </button>
+  
+      <!-- Vista previa del archivo seleccionado -->
+      <div *ngIf="archivoSeleccionado" class="mt-4 p-4 bg-gray-100 rounded">
+        <p class="text-gray-700">Archivo seleccionado: {{ archivoSeleccionado.name }}</p>
+      </div>
+  
+    </form>
+</div>
+  

@@ -1,0 +1,50 @@
+<div class="space-y-6">
+
+  <!-- Header + Filtros -->
+  <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center">
+    <h1 class="text-2xl font-bold text-gray-800 mb-4 sm:mb-0">Reportes</h1>
+
+    <!-- Filtros -->
+    <div class="flex flex-col sm:flex-row gap-2">
+      <input type="text" placeholder="Buscar reporte"  class="p-2 border rounded w-full sm:w-64" />
+
+      <select  class="p-2 border rounded">
+        <option value="">Todos los tipos</option>
+        <option value="PDF">PDF</option>
+        <option value="Excel">Excel</option>
+        <option value="Gráfico">Gráfico</option>
+      </select>
+
+      <button (click)="limpiarFiltros()" class="px-3 py-2 bg-gray-300 rounded hover:bg-gray-400">Limpiar</button>
+    </div>
+  </div>
+
+  <!-- Tabla de reportes -->
+  <div class="bg-white p-6 shadow rounded-xl overflow-x-auto">
+    <table class="min-w-full divide-y divide-gray-200">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Nombre</th>
+          <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Tipo</th>
+          <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Fecha</th>
+          <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Generado Por</th>
+          <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Acciones</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-200">
+        <tr *ngFor="let reporte of reportesFiltrados()">
+          <td class="px-6 py-4 text-gray-800">{{ reporte.nombre }}</td>
+          <td class="px-6 py-4 text-gray-600">{{ reporte.tipo }}</td>
+          <td class="px-6 py-4 text-gray-600">{{ reporte.fecha }}</td>
+          <td class="px-6 py-4 text-gray-600">{{ reporte.generadoPor }}</td>
+          <td class="px-6 py-4">
+            <button (click)="descargarReporte(reporte)" class="px-2 py-1 bg-blue-600 text-white rounded hover:bg-blue-700">Descargar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+  

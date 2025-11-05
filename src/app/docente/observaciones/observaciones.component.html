@@ -1,0 +1,39 @@
+<div class="space-y-6">
+
+    <!-- Header de la sección -->
+    <header class="flex justify-between items-center mb-4">
+      <h2 class="text-2xl font-bold text-gray-800">Observaciones</h2>
+      <button class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition">
+        Nueva Observación
+      </button>
+    </header>
+  
+    <!-- Tabla de observaciones -->
+    <div class="overflow-x-auto bg-white shadow rounded-xl">
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-100">
+          <tr>
+            <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Estudiante</th>
+            <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Proyecto</th>
+            <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Observación</th>
+            <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Fecha</th>
+            <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Acciones</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+          <tr *ngFor="let obs of observaciones">
+            <td class="px-6 py-4 text-gray-800">{{ obs.estudiante }}</td>
+            <td class="px-6 py-4 text-gray-600">{{ obs.proyecto }}</td>
+            <td class="px-6 py-4 text-gray-600">{{ obs.texto }}</td>
+            <td class="px-6 py-4 text-gray-600">{{ obs.fecha }}</td>
+            <td class="px-6 py-4">
+              <button class="text-green-600 hover:underline mr-2">Ver</button>
+              <button class="text-blue-600 hover:underline">Editar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+  
