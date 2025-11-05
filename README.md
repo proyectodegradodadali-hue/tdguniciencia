@@ -3,7 +3,9 @@
 Proyecto de grado Ingenieria de sistemas
 
 #Integrantes:
+
 ALICIA MEDINA TORRES
+
 DAVID CARVAJAL PERNETT
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.4.
