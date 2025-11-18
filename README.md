@@ -1,4 +1,4 @@
-# Tdguniciencia
+# Sistema Gestión Proyectos de Grado
 
 Proyecto de grado Ingenieria de sistemas
 
